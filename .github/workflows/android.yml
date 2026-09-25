@@ -22,6 +22,10 @@ jobs:
         run: npm install
       - name: Create Android project
         run: npx cap add android || true
+      - name: Prepare web bundle
+        run: |
+          mkdir -p www
+          cp index.html styles.css app.js manifest.webmanifest sw.js www/
       - name: Sync web application
         run: npx cap sync android
       - name: Build debug APK
