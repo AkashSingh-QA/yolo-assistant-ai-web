@@ -28,11 +28,17 @@ jobs:
           cp index.html styles.css app.js manifest.webmanifest sw.js www/
       - name: Sync web application
         run: npx cap sync android
-      - name: Build debug APK
-        run: cd android && ./gradlew assembleDebug
-      - name: Publish test APK
+      - name: Build and sign release APK
+        run: |
+          keytool -genkeypair -keystore yolo-release.keystore -storepass yolo-test-password -keypass yolo-test-password -alias yolo -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Yolo Asistant AI, OU=Mobile, O=Yolo, L=New Delhi, ST=Delhi, C=IN"
+          cd android && ./gradlew assembleRelease
+          BUILD_TOOLS=$(ls -d "$ANDROID_HOME/build-tools"/* | sort -V | tail -1)
+          "$BUILD_TOOLS/zipalign" -p 4 app/build/outputs/apk/release/app-release-unsigned.apk ../yolo-release-aligned.apk
+          "$BUILD_TOOLS/apksigner" sign --ks ../yolo-release.keystore --ks-pass pass:yolo-test-password --key-pass pass:yolo-test-password --ks-key-alias yolo --out ../Yolo-Asistant-AI-release.apk ../yolo-release-aligned.apk
+          "$BUILD_TOOLS/apksigner" verify --verbose ../Yolo-Asistant-AI-release.apk
+      - name: Publish signed test APK
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete android-test --yes || true
-          gh release create android-test android/app/build/outputs/apk/debug/app-debug.apk --title "Yolo Asistant.AI Android test" --notes "Debug APK generated from the current web build."
+          gh release create android-test Yolo-Asistant-AI-release.apk --title "Yolo Asistant.AI Android test" --notes "Signed Android test APK generated from the current web build."
