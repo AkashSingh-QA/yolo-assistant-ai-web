@@ -1,0 +1,13 @@
+{
+  "name": "yolo-assistant-ai-web",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "android:sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  }
+}

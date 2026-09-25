@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b111b">
+  <meta name="description" content="Yolo Asistant.AI — prepare, practice, and organize your professional conversations.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Yolo Asistant.AI</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">Y</span><span>Yolo <em>Asistant.AI</em></span></a>
+    <nav><a href="#features">Features</a><a href="#workflow">How it works</a><a href="#download">Download</a></nav>
+    <button class="mode" id="themeToggle" aria-label="Change color theme">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR PREPARATION COMPANION</p>
+        <h1>Walk into every conversation <span>prepared.</span></h1>
+        <p class="lead">Practice answers, organize project knowledge, prepare from your resume and documents, and keep useful notes in one private workspace.</p>
+        <div class="hero-actions"><a class="button primary" href="#demo">Try web demo</a><a class="button secondary" href="#download">Get desktop app</a></div>
+        <p class="small">Choose what to share. Review privacy controls before every call.</p>
+      </div>
+      <div class="app-preview" aria-label="Call Live product preview">
+        <div class="window-bar"><span></span><span></span><span></span><b>Call Live</b></div>
+        <div class="preview-main">
+          <aside><div class="mini-logo">Y</div><b>Workspace</b><a class="active">◉ Call Live</a><a>◌ Sessions</a><a>✦ AI Notes</a><a>⌘ Practice</a></aside>
+          <article><div class="status"><i></i> READY TO PRACTICE</div><p class="question">“Explain the difference between Docker and Kubernetes.”</p><div class="answer"><b>Structured answer</b><p>Docker packages an application and its dependencies into containers. Kubernetes manages containers at scale: deployment, networking, scaling, and recovery.</p><ul><li>Use Docker to build and run a container.</li><li>Use Kubernetes when many containers need orchestration.</li></ul></div><div class="input">Type a practice question… <button>Ask Yolo ↗</button></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <p class="eyebrow">ONE WORKSPACE</p><h2>Everything needed before and after an important call.</h2>
+      <div class="cards">
+        <article><span>◉</span><h3>Call practice</h3><p>Use live practice mode to rehearse technical and behavioural questions.</p></article>
+        <article><span>✦</span><h3>AI Notes</h3><p>Turn conversations into key points, decisions, and action items.</p></article>
+        <article><span>▤</span><h3>Documents</h3><p>Keep your project material and preparation documents together.</p></article>
+        <article><span>⌘</span><h3>Mock interview</h3><p>Practice with guided questions and improve the clarity of each response.</p></article>
+        <article><span>□</span><h3>Resume prep</h3><p>Prepare examples from your skills, experience, and target role.</p></article>
+        <article><span>?</span><h3>Question bank</h3><p>Build a repeatable practice set for each subject or role.</p></article>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow"><div><p class="eyebrow">SIMPLE FLOW</p><h2>Prepare. Practice. Review.</h2></div><ol><li><b>01</b><span><strong>Add your context</strong><small>Resume, role, project notes, or questions.</small></span></li><li><b>02</b><span><strong>Practice in Call Live</strong><small>Use microphone test mode or type a question.</small></span></li><li><b>03</b><span><strong>Review and improve</strong><small>Save notes and refine answers for next time.</small></span></li></ol></section>
+
+    <section id="demo" class="demo"><div><p class="eyebrow">WEB DEMO</p><h2>Ask a practice question.</h2><p>Demo answers are generated locally for this preview.</p></div><form id="askForm"><label for="question">Your question</label><textarea id="question" placeholder="For example: What is DevOps and where is it used?" required></textarea><button class="button primary" type="submit">Ask Yolo ↗</button></form><article class="demo-answer" id="demoAnswer" hidden><p class="eyebrow">SUGGESTED STRUCTURE</p><div id="answerText"></div></article></section>
+
+    <section id="download" class="download"><p class="eyebrow">AVAILABLE NOW</p><h2>Use Yolo on desktop. Mobile test build is being prepared.</h2><p>The Windows desktop app supports local processing and practice mode. The web experience works in modern mobile browsers.</p><div class="hero-actions"><a class="button primary" href="https://github.com/AkashSingh-QA/yolo-assistant-ai" target="_blank" rel="noreferrer">Open project</a><button class="button secondary" id="installButton" hidden>Install web app</button></div></section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="brand-mark">Y</span>Yolo Asistant.AI</a><span>© 2026 Yolo Asistant.AI</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
